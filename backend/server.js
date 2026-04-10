@@ -138,13 +138,13 @@ app.post("/api/calculate", async (req, res) => {
 
                         1️⃣ CURRENT CARBON FOOTPRINT
 
-                        Total Carbon Footprint: ___ kg CO2
+                        Total Carbon Footprint: ___ kg CO2e
 
                         Breakdown:
-                        - Food: ___ kg CO2
-                        - Transport: ___ kg CO2
-                        - Shopping: ___ kg CO2
-                        - Appliances: ___ kg CO2
+                        - Food: ___ kg CO2e
+                        - Transport: ___ kg CO2e
+                        - Shopping: ___ kg CO2e
+                        - Appliances: ___ kg CO2e
 
                         -----------------------------
                         2️⃣ ECO-FRIENDLY RECOMMENDATIONS
@@ -168,7 +168,7 @@ app.post("/api/calculate", async (req, res) => {
 
                         Recalculate assuming the user follows ALL recommendations and uses suggested brands:
 
-                        New Carbon Footprint: ___ kg CO2
+                        New Carbon Footprint: ___ kg CO2e
 
                         Breakdown:
                         - Food: ___
@@ -179,7 +179,7 @@ app.post("/api/calculate", async (req, res) => {
                         -----------------------------
                         5️⃣ CARBON REDUCTION IMPACT
 
-                        Total Reduction: ___ kg CO2
+                        Total Reduction: ___ kg CO2e
 
                         Percentage Reduction: ___ %
 
