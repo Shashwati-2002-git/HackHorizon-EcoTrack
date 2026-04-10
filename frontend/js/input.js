@@ -1,4 +1,5 @@
-function loadForm(type) {
+// Sidebar switching
+function loadForm(type, btn) {
     const titles = {
         current: "Current Consumption",
         day: "Last 24 Hours",
@@ -8,45 +9,59 @@ function loadForm(type) {
     };
 
     document.getElementById("formTitle").innerText = titles[type];
+
+    document.querySelectorAll(".sidebar button").forEach(b => {
+        b.classList.remove("active");
+    });
+
+    btn.classList.add("active");
 }
 
-document.getElementById("carbonForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
 
-    const button = document.querySelector("button");
-    button.innerText = "Calculating...";
-    button.disabled = true;
+// Form submission
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("carbonForm");
 
-    const data = {
-        food: document.getElementById("food").value.trim(),
-        transport: document.getElementById("transport").value.trim(),
-        shopping: document.getElementById("shopping").value.trim(),
-        appliances: document.getElementById("appliances").value.trim()
-    };
+    form.addEventListener("submit", async function(e) {
+        e.preventDefault();
 
-    try {
-        const response = await fetch("http://localhost:5000/api/calculate", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
+        // Collect form data
+        const data = {
+            food: document.getElementById("food").value,
+            foodCount: document.getElementById("foodCount").value,
 
-        const result = await response.json();
+            transport: document.getElementById("transport").value,
+            vehicleType: document.getElementById("vehicleType").value,
+            kmTravelled: document.getElementById("kmTravelled").value,
+            travelDays: document.getElementById("travelDays").value,
 
-        if (!response.ok) {
-            throw new Error(result.error || "Something went wrong");
+            shopping: document.getElementById("shopping").value,
+            clothMaterial: document.getElementById("clothMaterial").value,
+            clothCount: document.getElementById("clothCount").value,
+
+            appliances: document.getElementById("appliances").value,
+            usageTime: document.getElementById("usageTime").value
+        };
+
+        try {
+            const response = await fetch("/result", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            // If backend redirects → follow it
+            if (response.redirected) {
+                window.location.href = response.url;
+            } else {
+                // fallback (in case backend sends normal response)
+                window.location.href = "/result";
+            }
+
+        } catch (error) {
+            console.error("Error submitting form:", error);
         }
-
-        localStorage.setItem("carbonResult", JSON.stringify(result));
-
-        window.location.href = "/result";
-
-    } catch (error) {
-        alert("❌ Error: " + error.message);
-    } finally {
-        button.innerText = "Calculate Carbon Footprint";
-        button.disabled = false;
-    }
+    });
 });

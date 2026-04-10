@@ -59,10 +59,30 @@ app.post("/api/calculate", async (req, res) => {
     try {
         console.log("\n📥 Incoming Request:", req.body);
 
-        const { food, transport, shopping, appliances } = req.body;
+        const {
+            food,
+            foodCount,
+
+            transport,
+            vehicleType,
+            kmTravelled,
+            travelDays,
+
+            shopping,
+            clothMaterial,
+            clothCount,
+
+            appliances,
+            usageTime
+        } = req.body;
 
         /* ✅ Input validation */
-        if (!food && !transport && !shopping && !appliances) {
+        if (
+            !food && !foodCount &&
+            !transport && !kmTravelled &&
+            !shopping && !clothCount &&
+            !appliances && !usageTime
+        ) {
             console.log("❌ Empty input");
             return res.status(400).json({ error: "Please enter some data" });
         }
@@ -72,11 +92,24 @@ app.post("/api/calculate", async (req, res) => {
 You are a carbon footprint expert.
 
 Analyze:
-Food: ${food}
-Transport: ${transport}
-Shopping: ${shopping}
-Appliances: ${appliances}
+🍽 Food:
+Type: ${food}
+Times Consumed: ${foodCount}
 
+🚗 Transport:
+Mode: ${transport}
+Vehicle Type: ${vehicleType}
+Distance Travelled: ${kmTravelled} km
+Days Travelled: ${travelDays}
+
+🛍 Shopping:
+Items: ${shopping}
+Material: ${clothMaterial}
+Quantity: ${clothCount}
+
+⚡ Appliances:
+Devices: ${appliances}
+Usage Time: ${usageTime} hours
 Return:
 
 Carbon Footprint: ___ kg CO2

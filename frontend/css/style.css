@@ -455,3 +455,83 @@ button {
     border-radius: 8px;
     cursor: pointer;
 }
+
+/* FORM UI UPGRADE */
+.form-area {
+    flex: 1;
+    padding: 3rem;
+    background: #f9fbf9;
+}
+
+.form-area h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #27ae60;
+    box-shadow: 0 0 8px rgba(39,174,96,0.2);
+}
+
+/* Button upgrade */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #27ae60, #1e8449);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(39,174,96,0.3);
+}
+
+/* Sidebar active effect */
+.sidebar button.active {
+    background: #27ae60;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .input-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .form-area {
+        padding: 1.5rem;
+    }
+}
