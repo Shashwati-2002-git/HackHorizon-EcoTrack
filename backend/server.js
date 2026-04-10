@@ -61,6 +61,10 @@ app.get("/forgot-password", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/pages/forgotPassword.html"));
 });
 
+app.get("/create-community", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/pages/createCommunity.html"));
+});
+
 /* ✅ Fix Chrome warning */
 app.get("/.well-known/appspecific/com.chrome.devtools.json", (req, res) => {
     res.json({});
@@ -101,43 +105,93 @@ app.post("/api/calculate", async (req, res) => {
 
         /* 🔥 Prompt */
         const prompt = `
-You are a carbon footprint expert.
+                        You are a carbon footprint expert and sustainability advisor.
 
-Analyze:
-🍽 Food:
-Type: ${food}
-Times Consumed: ${foodCount}
+                        Analyze the user's lifestyle and provide detailed insights.
 
-🚗 Transport:
-Mode: ${transport}
-Vehicle Type: ${vehicleType}
-Distance Travelled: ${kmTravelled} km
-Days Travelled: ${travelDays}
+                        -----------------------------
+                        📊 USER INPUT
+                        -----------------------------
 
-🛍 Shopping:
-Items: ${shopping}
-Material: ${clothMaterial}
-Quantity: ${clothCount}
+                        🍽 Food:
+                        Type: ${food}
+                        Times Consumed: ${foodCount}
 
-⚡ Appliances:
-Devices: ${appliances}
-Usage Time: ${usageTime} hours
-Return:
+                        🚗 Transport:
+                        Mode: ${transport}
+                        Vehicle Type: ${vehicleType}
+                        Distance Travelled: ${kmTravelled} km
+                        Days Travelled: ${travelDays}
 
-Carbon Footprint: ___ kg CO2
+                        🛍 Shopping:
+                        Items: ${shopping}
+                        Material: ${clothMaterial}
+                        Quantity: ${clothCount}
 
-Breakdown:
-- Food: ___
-- Transport: ___
-- Shopping: ___
-- Appliances: ___
+                        ⚡ Appliances:
+                        Devices: ${appliances}
+                        Usage Time: ${usageTime} hours
 
-Recommendations:
-1. ___
-2. ___
-3. ___
-4. ___
-`;
+                        -----------------------------
+                        📊 OUTPUT FORMAT
+                        -----------------------------
+
+                        1️⃣ CURRENT CARBON FOOTPRINT
+
+                        Total Carbon Footprint: ___ kg CO2
+
+                        Breakdown:
+                        - Food: ___ kg CO2
+                        - Transport: ___ kg CO2
+                        - Shopping: ___ kg CO2
+                        - Appliances: ___ kg CO2
+
+                        -----------------------------
+                        2️⃣ ECO-FRIENDLY RECOMMENDATIONS
+
+                        Provide 4-6 actionable steps relevant to user's input to reduce carbon footprint.
+
+                        -----------------------------
+                        3️⃣ SUSTAINABLE BRAND SUGGESTIONS
+
+                        Suggest real-world eco-friendly brands/products relevant to the user's input:
+
+                        - Food Brands: ___
+                        - Transport Alternatives (EV brands / public transport options): ___
+                        - Clothing/Shopping Brands: ___
+                        - Appliance Brands (energy efficient): ___
+
+                        (Ensure brands are realistic, popular, and known for sustainability.)
+
+                        -----------------------------
+                        4️⃣ IMPROVED CARBON FOOTPRINT (AFTER FOLLOWING RECOMMENDATIONS)
+
+                        Recalculate assuming the user follows ALL recommendations and uses suggested brands:
+
+                        New Carbon Footprint: ___ kg CO2
+
+                        Breakdown:
+                        - Food: ___
+                        - Transport: ___
+                        - Shopping: ___
+                        - Appliances: ___
+
+                        -----------------------------
+                        5️⃣ CARBON REDUCTION IMPACT
+
+                        Total Reduction: ___ kg CO2
+
+                        Percentage Reduction: ___ %
+
+                        Explain briefly how the reduction was achieved.
+
+                        -----------------------------
+                        IMPORTANT RULES:
+                        - Be realistic with numbers.
+                        - Ensure improved footprint is LOWER than original.
+                        - Keep explanation clear and structured.
+                        - Avoid vague statements.
+                        `;
 
         console.log("📤 Sending request to Groq...");
 

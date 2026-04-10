@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Community | EcoTrack</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+/* 🌱 Page Container */
+.create-community-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+/* 🌿 Card */
+.create-community-card {
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+
+    padding: 2.5rem;
+    border-radius: 15px;
+
+    width: 100%;
+    max-width: 450px;
+
+    box-shadow: var(--shadow-soft);
+
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Title */
+.create-community-card h2 {
+    margin-bottom: 10px;
+}
+
+.create-community-card p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.create-community-card input,
+.create-community-card textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+
+    background: rgba(255,255,255,0.05);
+    color: white;
+
+    resize: none;
+}
+
+/* Focus */
+.create-community-card input:focus,
+.create-community-card textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.4);
+}
+
+/* Button */
+.create-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+
+    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.create-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ✅ NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <span class="icon">🌿</span> <strong>EcoTrack</strong>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/input">Input</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/community">Join A Community</a></li>
+            <li><a href="/" class="btn-secondary">Home</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- 🌱 FORM -->
+<div class="create-community-container">
+
+    <div class="create-community-card">
+        <h2>Create a Community 🌍</h2>
+        <p>Start an initiative and bring people together for a greener cause.</p>
+
+        <form id="communityForm">
+
+            <input type="text" placeholder="Your Name" required>
+
+            <input type="text" placeholder="Community Name" required>
+
+            <textarea rows="4" placeholder="Cause (e.g., Tree Plantation, Clean Rivers, Zero Waste...)" required></textarea>
+
+            <button type="submit" class="create-btn">
+                Create Community
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- ✅ FOOTER -->
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 EcoTrack Assistant. Together for a greener planet 🌍</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> &nbsp; &nbsp;
+            <a href="#">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<!-- 🔥 Concept-only JS -->
+<script>
+document.getElementById("communityForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("🌱 Community created! (Concept only — no data saved yet)");
+});
+</script>
+
+</body>
+</html>

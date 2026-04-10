@@ -89,6 +89,40 @@
     box-shadow: var(--glow);
 }
 
+/* ➕ Create Community Button Section */
+.create-community-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 50px 0 20px 0;
+}
+
+/* Button Style */
+.create-community-btn {
+    padding: 14px 28px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Hover Effect */
+.create-community-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--glow);
+}
+
 /* 📱 Responsive */
 @media (max-width: 768px) {
     .community-container {
@@ -116,7 +150,7 @@
     </nav>
 </header>
 
-<!-- 🌍 COMMUNITY SECTION -->
+<!-- COMMUNITY SECTION -->
 <div class="community-container">
 
     <h2>🌍 Join the Eco Community</h2>
@@ -124,7 +158,7 @@
 
     <div class="community-grid">
 
-        <!-- 🌳 Card 1 -->
+        <!-- Card 1 -->
         <div class="community-card">
             <div class="community-icon">🌳</div>
             <h3>Tree Plantation Drives</h3>
@@ -132,7 +166,7 @@
             <a href="#" class="join-btn">Join Now</a>
         </div>
 
-        <!-- 🌊 Card 2 -->
+        <!-- Card 2 -->
         <div class="community-card">
             <div class="community-icon">🌊</div>
             <h3>Clean Oceans Initiative</h3>
@@ -140,7 +174,7 @@
             <a href="#" class="join-btn">Join Now</a>
         </div>
 
-        <!-- ♻️ Card 3 -->
+        <!-- Card 3 -->
         <div class="community-card">
             <div class="community-icon">♻️</div>
             <h3>Zero Waste Lifestyle</h3>
@@ -148,7 +182,7 @@
             <a href="#" class="join-btn">Join Now</a>
         </div>
 
-        <!-- 🚴 Card 4 -->
+        <!-- Card 4 -->
         <div class="community-card">
             <div class="community-icon">🚴</div>
             <h3>Eco Transport Group</h3>
@@ -156,7 +190,7 @@
             <a href="#" class="join-btn">Join Now</a>
         </div>
 
-        <!-- 🌱 Card 5 -->
+        <!-- Card 5 -->
         <div class="community-card">
             <div class="community-icon">🌱</div>
             <h3>Climate Awareness Campaign</h3>
@@ -164,7 +198,7 @@
             <a href="#" class="join-btn">Join Now</a>
         </div>
 
-        <!-- 🏡 Card 6 -->
+        <!-- Card 6 -->
         <div class="community-card">
             <div class="community-icon">🏡</div>
             <h3>Green Homes Movement</h3>
@@ -174,6 +208,13 @@
 
     </div>
 
+</div>
+
+<!-- CREATE COMMUNITY BUTTON -->
+<div class="create-community-container">
+    <button class="create-community-btn" onclick="window.location.href='/create-community'">
+        Create Your Own Community
+    </button>
 </div>
 
 <!-- ✅ FOOTER -->

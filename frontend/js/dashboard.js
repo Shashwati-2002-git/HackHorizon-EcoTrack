@@ -45,7 +45,7 @@ function renderChart(labels, data, type) {
         data: {
             labels: labels,
             datasets: [{
-                label: "Carbon Footprint (kg CO₂)",
+                label: "Carbon Footprint (kg CO₂e)",
                 data: data
             }]
         },
