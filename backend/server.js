@@ -49,6 +49,10 @@ app.get("/dashboard", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/pages/dashboard.html"));
 });
 
+app.get("/history", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/pages/history.html"));
+});
+
 /* ✅ Fix Chrome warning */
 app.get("/.well-known/appspecific/com.chrome.devtools.json", (req, res) => {
     res.json({});

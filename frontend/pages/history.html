@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoTrack History</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+/* 🌌 Container */
+.history-container {
+    padding: 2.5rem;
+}
+
+/* Title */
+.history-container h2 {
+    margin-bottom: 20px;
+}
+
+/* History Card */
+.history-card {
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+
+    padding: 20px;
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    box-shadow: var(--shadow-soft);
+
+    transition: 0.3s;
+}
+
+.history-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--glow);
+}
+
+/* Date */
+.history-date {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+/* Result text */
+.history-result {
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ✅ NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <span class="icon">🌿</span> <strong>EcoTrack</strong>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/input">Input</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/history" class="btn-primary">History</a></li>
+            <li><a href="/" class="btn-secondary">Home</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ✅ CONTENT -->
+<div class="history-container">
+    <h2>📜 Your Carbon History</h2>
+
+    <!-- Entry 1 -->
+    <div class="history-card">
+        <div class="history-date">📅 10 April 2026</div>
+        <div class="history-result">
+Carbon Footprint: 18 kg CO2
+
+Breakdown:
+- Food: 5 kg
+- Transport: 8 kg
+- Shopping: 3 kg
+- Appliances: 2 kg
+
+Recommendations:
+1. Reduce private vehicle usage 🚗
+2. Switch to plant-based meals 🥗
+3. Buy fewer fast-fashion items 👕
+4. Use energy-efficient appliances ⚡
+        </div>
+    </div>
+
+    <!-- Entry 2 -->
+    <div class="history-card">
+        <div class="history-date">📅 8 April 2026</div>
+        <div class="history-result">
+Carbon Footprint: 12 kg CO2
+
+Breakdown:
+- Food: 4 kg
+- Transport: 4 kg
+- Shopping: 2 kg
+- Appliances: 2 kg
+
+Recommendations:
+1. Use public transport 🚌
+2. Reduce meat consumption 🍗
+3. Recycle clothing ♻️
+4. Limit AC usage ❄️
+        </div>
+    </div>
+
+    <!-- Entry 3 -->
+    <div class="history-card">
+        <div class="history-date">📅 5 April 2026</div>
+        <div class="history-result">
+Carbon Footprint: 22 kg CO2
+
+Breakdown:
+- Food: 6 kg
+- Transport: 10 kg
+- Shopping: 4 kg
+- Appliances: 2 kg
+
+Recommendations:
+1. Carpool whenever possible 🚘
+2. Avoid over-shopping 🛍
+3. Use LED lights 💡
+4. Turn off unused devices 🔌
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

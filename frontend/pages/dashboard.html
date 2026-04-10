@@ -19,49 +19,62 @@
 <script type="module" src="../js/dashboard.js"></script>
 
 <style>
-/* Dashboard Layout aligned with theme */
+
+/* 🌌 Container */
 .dashboard-container {
     display: flex;
     min-height: 100vh;
-    background: var(--bg-light);
 }
 
-/* Sidebar (consistent with your green theme) */
+/* 🌿 Sidebar (Glass Dark Theme) */
 .dashboard-sidebar {
-    width: 200px;
-    background: var(--white);
+    width: 220px;
     padding: 20px;
-    box-shadow: var(--shadow);
+
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+
+    box-shadow: var(--shadow-soft);
+
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    border-right: 1px solid rgba(255,255,255,0.1);
 }
 
 .dashboard-sidebar h3 {
     margin-bottom: 10px;
+    color: var(--text-main);
 }
 
+/* Sidebar Buttons */
 .dashboard-sidebar button {
     padding: 12px;
-    border: none;
     border-radius: 10px;
-    background: var(--light-green);
+
+    background: rgba(255,255,255,0.05);
+    color: var(--text-main);
+
+    border: 1px solid rgba(255,255,255,0.1);
     cursor: pointer;
-    font-weight: 600;
+
     transition: 0.3s;
 }
 
 .dashboard-sidebar button:hover {
     background: var(--primary-green);
     color: white;
+    box-shadow: var(--glow);
 }
 
 .dashboard-sidebar button.active {
     background: var(--primary-green);
     color: white;
+    box-shadow: var(--glow);
 }
 
-/* Main Content */
+/* 📊 Main Area */
 .dashboard-main {
     flex: 1;
     padding: 2.5rem;
@@ -71,20 +84,27 @@
     margin-bottom: 20px;
 }
 
-/* Chart Card */
+/* 📦 Chart Card (Glass Style) */
 .chart-card {
-    background: var(--white);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+
     padding: 25px;
     border-radius: 15px;
-    box-shadow: var(--shadow);
-    max-width: 800px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    box-shadow: var(--shadow-soft);
+
+    max-width: 900px;
 }
 
+/* Chart canvas */
 canvas {
     width: 100% !important;
 }
 
-/* Responsive */
+/* 📱 Responsive */
 @media (max-width: 768px) {
     .dashboard-container {
         flex-direction: column;
@@ -93,15 +113,17 @@ canvas {
     .dashboard-sidebar {
         flex-direction: row;
         overflow-x: auto;
+        width: 100%;
     }
 }
+
 </style>
 
 </head>
 
 <body>
 
-<!-- ✅ NAVBAR (same as index.html) -->
+<!-- ✅ NAVBAR -->
 <header class="navbar">
     <div class="logo">
         <span class="icon">🌿</span> <strong>EcoTrack</strong>
@@ -125,6 +147,7 @@ canvas {
         <button onclick="setActive(this); loadData('week')">Weekly</button>
         <button onclick="setActive(this); loadData('month')">Monthly</button>
         <button onclick="setActive(this); loadData('year')">Yearly</button>
+        <button onclick="goToHistory()">History</button>
     </div>
 
     <!-- Main Content -->
@@ -139,7 +162,6 @@ canvas {
 </div>
 
 <script>
-// Active button highlight
 function setActive(btn) {
     document.querySelectorAll(".dashboard-sidebar button").forEach(b => {
         b.classList.remove("active");
@@ -147,12 +169,16 @@ function setActive(btn) {
     btn.classList.add("active");
 }
 
-// Default load
 window.onload = () => {
     const firstBtn = document.querySelector(".dashboard-sidebar button");
     firstBtn.classList.add("active");
     loadData("day");
 };
+
+function goToHistory() {
+    window.location.assign("/history");
+}
+
 </script>
 
 </body>
