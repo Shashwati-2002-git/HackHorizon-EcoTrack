@@ -53,6 +53,14 @@ app.get("/history", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/pages/history.html"));
 });
 
+app.get("/community", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/pages/community.html"));
+});
+
+app.get("/forgot-password", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/pages/forgotPassword.html"));
+});
+
 /* ✅ Fix Chrome warning */
 app.get("/.well-known/appspecific/com.chrome.devtools.json", (req, res) => {
     res.json({});

@@ -131,7 +131,7 @@ canvas {
     <nav>
         <ul class="nav-links">
             <li><a href="/input">Input</a></li>
-            <li><a href="/dashboard" class="btn-primary">Dashboard</a></li>
+            <li><a href="/community">My Communities</a></li>
             <li><a href="/" class="btn-secondary">Home</a></li>
         </ul>
     </nav>
@@ -142,8 +142,8 @@ canvas {
 
     <!-- Sidebar -->
     <div class="dashboard-sidebar">
-        <h3>📊 View</h3>
-        <button onclick="setActive(this); loadData('day')">24 Hours</button>
+        <h3>📊 My Analytics</h3>
+        <button onclick="setActive(this); loadData('day')">Past 24 Hours</button>
         <button onclick="setActive(this); loadData('week')">Weekly</button>
         <button onclick="setActive(this); loadData('month')">Monthly</button>
         <button onclick="setActive(this); loadData('year')">Yearly</button>
@@ -160,6 +160,16 @@ canvas {
     </div>
 
 </div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 EcoTrack Assistant. Together for a greener planet 🌍</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> &nbsp; &nbsp;
+            <a href="#">Contact</a>
+        </div>
+    </div>
+</footer>
 
 <script>
 function setActive(btn) {
