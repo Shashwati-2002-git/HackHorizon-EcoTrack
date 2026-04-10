@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoTrack Dashboard</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!-- Main CSS -->
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Dashboard JS -->
+<script type="module" src="../js/dashboard.js"></script>
+
+<style>
+/* Dashboard Layout aligned with theme */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background: var(--bg-light);
+}
+
+/* Sidebar (consistent with your green theme) */
+.dashboard-sidebar {
+    width: 200px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dashboard-sidebar h3 {
+    margin-bottom: 10px;
+}
+
+.dashboard-sidebar button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: var(--light-green);
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.dashboard-sidebar button:hover {
+    background: var(--primary-green);
+    color: white;
+}
+
+.dashboard-sidebar button.active {
+    background: var(--primary-green);
+    color: white;
+}
+
+/* Main Content */
+.dashboard-main {
+    flex: 1;
+    padding: 2.5rem;
+}
+
+.dashboard-main h2 {
+    margin-bottom: 20px;
+}
+
+/* Chart Card */
+.chart-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    max-width: 800px;
+}
+
+canvas {
+    width: 100% !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .dashboard-sidebar {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- ✅ NAVBAR (same as index.html) -->
+<header class="navbar">
+    <div class="logo">
+        <span class="icon">🌿</span> <strong>EcoTrack</strong>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/input">Input</a></li>
+            <li><a href="/dashboard" class="btn-primary">Dashboard</a></li>
+            <li><a href="/" class="btn-secondary">Home</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ✅ DASHBOARD -->
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <div class="dashboard-sidebar">
+        <h3>📊 View</h3>
+        <button onclick="setActive(this); loadData('day')">24 Hours</button>
+        <button onclick="setActive(this); loadData('week')">Weekly</button>
+        <button onclick="setActive(this); loadData('month')">Monthly</button>
+        <button onclick="setActive(this); loadData('year')">Yearly</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="dashboard-main">
+        <h2>Carbon Footprint Dashboard</h2>
+
+        <div class="chart-card">
+            <canvas id="chart"></canvas>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// Active button highlight
+function setActive(btn) {
+    document.querySelectorAll(".dashboard-sidebar button").forEach(b => {
+        b.classList.remove("active");
+    });
+    btn.classList.add("active");
+}
+
+// Default load
+window.onload = () => {
+    const firstBtn = document.querySelector(".dashboard-sidebar button");
+    firstBtn.classList.add("active");
+    loadData("day");
+};
+</script>
+
+</body>
+</html>

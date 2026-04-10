@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoTrack Input</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoTrack Input</title>
 
-    <link rel="stylesheet" href="../css/style.css">
-    <script defer src="../js/input.js"></script>
+<link rel="stylesheet" href="../css/style.css">
+<script defer src="../js/input.js"></script>
 </head>
 
 <body>
 
 <div class="input-container">
 
-    <!-- LEFT SIDEBAR -->
+    <!-- SIDEBAR -->
     <div class="sidebar">
         <button type="button" onclick="loadForm('current', this)">Current</button>
         <button type="button" onclick="loadForm('day', this)">24 Hours</button>
@@ -22,7 +22,7 @@
         <button type="button" onclick="loadForm('year', this)">Year</button>
     </div>
 
-    <!-- FORM AREA -->
+    <!-- FORM -->
     <div class="form-area">
         <h2 id="formTitle">Enter Your Data</h2>
 
@@ -31,46 +31,46 @@
             <!-- FOOD -->
             <div class="form-group">
                 <label>Food Type</label>
-                <input type="text" id="food" placeholder="e.g., veg, chicken, processed">
+                <input type="text" id="food">
 
                 <label>No. of times consumed</label>
-                <input type="number" id="foodCount" placeholder="e.g., 3">
+                <input type="number" id="foodCount">
             </div>
 
             <!-- TRANSPORT -->
             <div class="form-group">
                 <label>Transport Mode</label>
-                <input type="text" id="transport" placeholder="e.g., car, bus, bike">
+                <input type="text" id="transport">
 
                 <label>Vehicle Type</label>
-                <input type="text" id="vehicleType" placeholder="petrol, diesel, electric">
+                <input type="text" id="vehicleType">
 
                 <label>Kilometers Travelled</label>
-                <input type="number" id="kmTravelled" placeholder="e.g., 20">
+                <input type="number" id="kmTravelled">
 
                 <label>No. of Days Travelled</label>
-                <input type="number" id="travelDays" placeholder="e.g., 5">
+                <input type="number" id="travelDays">
             </div>
 
             <!-- SHOPPING -->
             <div class="form-group">
                 <label>Clothing Type</label>
-                <input type="text" id="shopping" placeholder="e.g., jeans, shirts">
+                <input type="text" id="shopping">
 
                 <label>Clothing Material</label>
-                <input type="text" id="clothMaterial" placeholder="cotton, polyester">
+                <input type="text" id="clothMaterial">
 
                 <label>No. of Clothes</label>
-                <input type="number" id="clothCount" placeholder="e.g., 2">
+                <input type="number" id="clothCount">
             </div>
 
             <!-- APPLIANCES -->
             <div class="form-group">
                 <label>Appliances Used</label>
-                <input type="text" id="appliances" placeholder="AC, fridge">
+                <input type="text" id="appliances">
 
                 <label>Usage Duration (hours)</label>
-                <input type="number" id="usageTime" placeholder="e.g., 5">
+                <input type="number" id="usageTime">
             </div>
 
             <button type="submit" class="submit-btn">

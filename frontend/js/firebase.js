@@ -4,6 +4,14 @@ import {
     getAuth, 
     createUserWithEmailAndPassword 
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    Timestamp
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
 
 // Your config (already correct ✅)
 const firebaseConfig = {
@@ -18,6 +26,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
+export const db = getFirestore(app);
 
 // Handle Signup
 const form = document.getElementById("signupForm");
@@ -75,3 +85,5 @@ if (loginForm) {
             });
     });
 }
+
+export { collection, addDoc, getDocs, Timestamp };

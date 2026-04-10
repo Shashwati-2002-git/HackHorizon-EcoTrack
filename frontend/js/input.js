@@ -18,33 +18,33 @@ function loadForm(type, btn) {
 }
 
 
-// Form submission
+// Form submission (ONLY backend)
 document.addEventListener("DOMContentLoaded", () => {
+
     const form = document.getElementById("carbonForm");
 
     form.addEventListener("submit", async function(e) {
         e.preventDefault();
 
-        // Collect form data
         const data = {
             food: document.getElementById("food").value,
-            foodCount: document.getElementById("foodCount").value,
+            foodCount: Number(document.getElementById("foodCount").value) || 0,
 
             transport: document.getElementById("transport").value,
             vehicleType: document.getElementById("vehicleType").value,
-            kmTravelled: document.getElementById("kmTravelled").value,
-            travelDays: document.getElementById("travelDays").value,
+            kmTravelled: Number(document.getElementById("kmTravelled").value) || 0,
+            travelDays: Number(document.getElementById("travelDays").value) || 0,
 
             shopping: document.getElementById("shopping").value,
             clothMaterial: document.getElementById("clothMaterial").value,
-            clothCount: document.getElementById("clothCount").value,
+            clothCount: Number(document.getElementById("clothCount").value) || 0,
 
             appliances: document.getElementById("appliances").value,
-            usageTime: document.getElementById("usageTime").value
+            usageTime: Number(document.getElementById("usageTime").value) || 0
         };
 
         try {
-            const response = await fetch("/result", {
+            const res = await fetch("/api/calculate", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -52,16 +52,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify(data)
             });
 
-            // If backend redirects → follow it
-            if (response.redirected) {
-                window.location.href = response.url;
-            } else {
-                // fallback (in case backend sends normal response)
-                window.location.href = "/result";
-            }
+            const result = await res.json();
+
+            // Store result for result page
+            localStorage.setItem("carbonResult", JSON.stringify(result));
+
+            // Redirect
+            window.location.href = "/result";
 
         } catch (error) {
-            console.error("Error submitting form:", error);
+            console.error("Error:", error);
         }
     });
+
 });
