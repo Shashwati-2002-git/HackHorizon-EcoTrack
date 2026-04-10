@@ -41,7 +41,7 @@ document.getElementById("carbonForm").addEventListener("submit", async (e) => {
 
         localStorage.setItem("carbonResult", JSON.stringify(result));
 
-        window.location.href = "result.html";
+        window.location.href = "/result";
 
     } catch (error) {
         alert("❌ Error: " + error.message);

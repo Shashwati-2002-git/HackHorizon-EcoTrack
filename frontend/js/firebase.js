@@ -35,7 +35,7 @@ if (form) {
                 console.log(userCredential.user);
 
                 // Optional: redirect
-                window.location.href = "input.html";
+                window.location.href = "/input";
             })
             .catch((error) => {
                 alert("❌ " + error.message);
@@ -66,7 +66,7 @@ if (loginForm) {
 
                 // Redirect after login
                 setTimeout(() => {
-                    window.location.href = "input.html";
+                    window.location.href = "/input";
                 }, 1000);
             })
             .catch((error) => {
