@@ -35,7 +35,7 @@ if (form) {
                 console.log(userCredential.user);
 
                 // Optional: redirect
-                window.location.href = "dashboard.html";
+                window.location.href = "input.html";
             })
             .catch((error) => {
                 alert("❌ " + error.message);
@@ -66,7 +66,7 @@ if (loginForm) {
 
                 // Redirect after login
                 setTimeout(() => {
-                    window.location.href = "dashboard.html";
+                    window.location.href = "input.html";
                 }, 1000);
             })
             .catch((error) => {

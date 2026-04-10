@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoTrack Input</title>
+
+<link rel="stylesheet" href="../css/style.css">
+<script defer src="../js/input.js"></script>
+</head>
+
+<body>
+
+<div class="input-container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <button onclick="loadForm('current')">Current</button>
+        <button onclick="loadForm('day')">24 Hours</button>
+        <button onclick="loadForm('week')">Week</button>
+        <button onclick="loadForm('month')">Month</button>
+        <button onclick="loadForm('year')">Year</button>
+    </div>
+
+    <!-- Form -->
+    <div class="form-area">
+        <h2 id="formTitle">Enter Your Data</h2>
+
+        <form id="carbonForm">
+
+            <label>Food Consumption</label>
+            <input type="text" id="food" placeholder="e.g., rice, chicken, processed food">
+
+            <label>Transport Used</label>
+            <input type="text" id="transport" placeholder="e.g., car, bus, flight">
+
+            <label>Shopping Habits</label>
+            <input type="text" id="shopping" placeholder="e.g., clothes, electronics">
+
+            <label>Appliances Used</label>
+            <input type="text" id="appliances" placeholder="e.g., AC, fridge, fan">
+
+            <button type="submit">Calculate Carbon Footprint</button>
+
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>
